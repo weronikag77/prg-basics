@@ -16,5 +16,12 @@ def weekday(n):
    return weekdays[n-1]
 
 def day_meal_plan(meal_plan, day_number):
-   ...
-   return ...
+   day_meals = meal_plan[day_number - 1]
+   meals = ", ".join(day_meals)
+   return meals
+
+print("WEEKLY MEAL PLAN")
+print("Breakfast, Lunch, Dinner")
+print("==========================")
+for i in range(1,8):
+   print(weekday(i), ":", day_meal_plan(meal_plan, i))
