@@ -9,12 +9,11 @@ shopping_list = 'shopping_list.txt'
 # adds product name at the end of a shopping list
 def add_product(file_name, product_name):
     with open(file_name, 'a') as file:
-        content = file.write(product_name)
+        content = file.write(f"{product_name}\n")
     return content
 
-file_name = shopping_list
-product = 1
-product_name = product
+
+product = ""
 
 while product != "0":
     product = input('Enter product name (0 stops): ')
@@ -22,4 +21,10 @@ while product != "0":
         break # stops entering food names ('while' breaks)
     else:
         add_product(shopping_list, product)
+
+with open(shopping_list, "r") as file:
+    print(len(file.readlines())) 
+
+
+
 
