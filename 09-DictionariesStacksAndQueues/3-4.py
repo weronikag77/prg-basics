@@ -6,14 +6,19 @@ import queue
 binary_number = queue.LifoQueue()
 
 number = 18
+print(f"Natural number: {number}")
 
 while number > 0:
     n = number%2
     binary_number.put(n)
     number = number//2
 
+result = ""
 while not binary_number.empty():
     bin = binary_number.get()
-    print(bin, end="")
+    result += str(bin)
+
+
+print(f"Binary number: {result}")
 
 
