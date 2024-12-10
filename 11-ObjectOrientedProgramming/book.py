@@ -1,3 +1,7 @@
+# Make changes so that the class also includes information about the book's price, 
+# which can be specified when it is created (specify a price of 48). 
+# Print the price information along with other printed data.
+
 # class definition
 class Book():
     def __init__(self,title,author,pages):
@@ -6,6 +10,7 @@ class Book():
         self.pages = pages
         self.current_page = 1
         self.is_open = False
+        self.price = 48
 
     def open(self):
         self.is_open = True
@@ -24,6 +29,7 @@ class Book():
             print(f"I am just reading the book, page {self.current_page}.")
         else:
             print("I am going to read the book later.")
+        print(f"The book's price is {self.price}.")
 
 
 def main():
