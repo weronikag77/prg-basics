@@ -5,24 +5,39 @@
 
 # tv.py file
 # class definition
+
 class TV():
     def __init__(self):
         self.is_on = False
+        self.channel_no = 1
+        self.channels = []
+        self.volume = 0
     def turn_off(self):
         self.is_on = False
     def turn_on(self):
         self.is_on = True
+    def set_channel(self, new_channel_no):
+        new_channel = new_channel_no
+        self.channel_no = new_channel
+    def set_channels(self, channels_list):
+        self.channels = channels_list
+    def show_channels(self):
+        print("Channel list: ")
+        print(*self.channels, sep="\n")
+    def volume_increase(self):
+        if self.volume >=0 and self.volume < 10:
+            self.volume += 1
+    def volume_decrease(self):
+        if self.volume >=0 and self.volume < 10:
+            self.volume -= 1
 
     def show_status(self):
         if self.is_on == True:
-            print("The TV is on")
+            if self.channel_no <= len(self.channels):
+                print(f"The TV is on, channel {self.channel_no}, {self.channels[self.channel_no - 1]}, volume: {self.volume}")
+            else:
+                print(f"The TV is on, channel {self.channel_no}, volume: {self.volume}")
         else:
-            print("The TV is off")
+            print(f"The TV is off")
 
-def main():
-    my_tv = TV()
-    my_tv.turn_on()
-    my_tv.show_status()
 
-if __name__ =="__main__":
-    main()
